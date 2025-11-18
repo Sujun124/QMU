@@ -9,8 +9,12 @@ We study membership privacy leakage in Quantum Neural Networks (QNNs) and propos
 
 This repository focuses on the **HQNN + Gradient Ascent Unlearning + MIA** pipeline used in our experiments on the 10-class MNIST dataset.
 
+---
 
-python HQNN_original_train.py  Train the original HQNN model
-python HQNN_target_train.py  Train the target HQNN model on retained data
-python QMU_unlearning_GA.py Perform Gradient Ascent Unlearning (GA)
-python MIA_attack.py Train and evaluate the MIA attack
+## Quick Start
+
+```bash
+python HQNN_original_train.py   # Train the original HQNN model
+python HQNN_target_train.py     # Train the target HQNN model on retained data
+python QMU_unlearning_GA.py     # Perform Gradient Ascent Unlearning (GA)
+python MIA_attack.py            # Train and evaluate the MIA attack
