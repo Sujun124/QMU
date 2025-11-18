@@ -18,6 +18,7 @@ python HQNN_original_train.py   # Train the original HQNN model
 python HQNN_target_train.py     # Train the target HQNN model on retained data
 python QMU_unlearning_GA.py     # Perform Gradient Ascent Unlearning (GA)
 python MIA_attack.py            # Train and evaluate the MIA attack
+---
 
 
 For questions about the code or the paper, please contact: junjiansu2@gmail.com
