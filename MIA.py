@@ -7,6 +7,8 @@ import random
 from HQNN import ConvQNN
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader, Subset
+from process import get_features
+
 
 def MIA_train_process_pytorch():
 
@@ -39,31 +41,6 @@ def MIA_train_process_pytorch():
     # === 3. 生成 MIA 攻击输入数据（模型输出概率 + label）===
     x_data_MIA = []
     y_data_MIA = []
-
-    def get_features(loader, label):
-        features = []
-        features_label4 = []
-        y_data_MIA_label4 = []
-        for x, y in loader:
-            with torch.no_grad():
-                output = model(x)
-                prob = F.softmax(output, dim=1).squeeze().numpy()
-
-                max_prob = np.max(prob)
-                pred_label = np.argmax(prob)
-                correct = int(pred_label == y.item())
-
-                loss = F.cross_entropy(output, y).item()
-
-                feature_vector = list(prob) + [max_prob, correct, loss]
-                # feature_vector = list(prob)
-
-                features.append(feature_vector)
-                y_data_MIA.append(label)
-                if y==4:
-                    features_label4.append(feature_vector)
-                    y_data_MIA_label4.append(1)
-        return features, features_label4, y_data_MIA_label4
 
     features_train, features_label4, y_data_MIA_label4 = get_features(loader_train, 1)  # 成员样本
     features_test,_,_ = get_features(loader_test, 0)    # 非成员样本
@@ -245,3 +222,4 @@ def MIA_attack():
 if __name__ == "__main__":
     MIA_train_process_pytorch()
     MIA_attack()
+
