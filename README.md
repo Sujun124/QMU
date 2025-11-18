@@ -7,14 +7,10 @@ This repository provides the PyTorch + PennyLane implementation used in the pape
 
 We study membership privacy leakage in Quantum Neural Networks (QNNs) and propose a **Quantum Machine Unlearning (QMU)** framework with three mechanisms (Gradient Ascent, Fisher-based, and Relative Gradient Ascent) to mitigate such leakage on both basic QNNs and Hybrid QNNs (HQNN).
 
-> This repository focuses on the **HQNN + Gradient Ascent Unlearning + MIA** pipeline used in our experiments on the 10-class MNIST dataset.
+This repository focuses on the **HQNN + Gradient Ascent Unlearning + MIA** pipeline used in our experiments on the 10-class MNIST dataset.
 
 
-python HQNN_original_train.py 
-  Train the original HQNN model
-python HQNN_target_train.py 
-  Train the target HQNN model on retained data
-python QMU_unlearning_GA.py
-  Perform Gradient Ascent Unlearning (GA)
-python MIA_attack.py
-  Train and evaluate the MIA attack
+python HQNN_original_train.py  Train the original HQNN model
+python HQNN_target_train.py  Train the target HQNN model on retained data
+python QMU_unlearning_GA.py Perform Gradient Ascent Unlearning (GA)
+python MIA_attack.py Train and evaluate the MIA attack
